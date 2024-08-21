@@ -29,6 +29,7 @@ public class AccountService {
                       .customerId(account.getCustomerId())
                       .build())
             .toList();
+
   }
 
   public DetailAccount getAccountDetail(String accountNumber, LocalDateTime viewYearMonth ) {
