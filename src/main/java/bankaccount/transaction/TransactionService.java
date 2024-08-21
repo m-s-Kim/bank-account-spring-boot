@@ -24,7 +24,7 @@ public class TransactionService {
     public void transfer(TransferPostRequest request){
 
         // 출금
-        Account withdrawAccount = accountRepository.findByAccountByNumber(request.getRequestAccountNumber())
+        Account withdrawAccount = accountRepository.findAccountByNumber(request.getRequestAccountNumber())
                 .orElseThrow();
         BigInteger amount = withdrawAccount.getBalance();
 
@@ -38,7 +38,7 @@ public class TransactionService {
         transactionRepository.save(withdraw);
 
         // 입금
-        Account depositAccount = accountRepository.findByAccountByNumber(request.getRequestAccountNumber())
+        Account depositAccount = accountRepository.findAccountByNumber(request.getRequestAccountNumber())
                 .orElseThrow();
         amount = depositAccount.getBalance();
 

@@ -2,6 +2,7 @@ package bankaccount.account;
 
 import bankaccount.account.dto.AccountGetResponse;
 import bankaccount.account.dto.DetailAccount;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Tag(name = "Example", description = "Example API")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1")
+@RequestMapping("/api/v1")
 public class AccountController {
+
   private final AccountService accountService;
 
   @GetMapping("/accounts") // todo : header ->customer_id

@@ -32,7 +32,7 @@ public class AccountService {
   }
 
   public DetailAccount getAccountDetail(String accountNumber, LocalDateTime viewYearMonth ) {
-    Account account = accountRepository.findByAccountByNumber(accountNumber).orElseThrow();
+    Account account = accountRepository.findAccountByNumber(accountNumber).orElseThrow();
     LocalDateTime startDate = viewYearMonth.plusDays(1);
     LocalDateTime endDate = viewYearMonth.plusMonths(1).minusDays(1);
     List<Transaction> transactionList = transactionRepository.findByAccountNumberAndCreatedAtBetween(accountNumber, startDate, endDate);
